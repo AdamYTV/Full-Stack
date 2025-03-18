@@ -1,31 +1,56 @@
-body{
-    background-color: #cacdd1;
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #8097e4;
 }
 
-#titulo{
-    font-family: 'Arsenal SC', sans-serif;
-    text-align: center;
-    color: rgb(70, 67, 67)
-
-}
-
-a:hover{
-    color: rgb(99, 90, 90);
-}
-
-table, th, td{
-    border: 6px solid;
-    width: 100%
-   
-}
-
-.link{
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 10px;
+nav {
     background-color: #333;
+    padding: 10px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 50;
+    display: flex;
+}
+
+nav ul li {
+    margin-right: 30px;
+}
+
+nav ul li a {
     color: white;
-    font-size: 16px;
     text-decoration: none;
+    font-weight: bold;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+table {
+    width: 50%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: white;
+}
+
+table, th, td {
+    border: 3px solid black;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+
+td a:hover {
+    color: red;
+}
+
+li a:hover {
+    color: red;
 }

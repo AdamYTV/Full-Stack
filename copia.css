@@ -1,12 +1,12 @@
 body{
-    background-color: #d3d3d3;
+    background-color: #a8a5a5;
     display: flex;
     flex-direction: column;
 }
 
 .topo {
-    background-color: #fee4c3;
-    color: #307e27;
+    background-color: #ad977a;
+    color: #4b8f44;
     height: 150px;
     display: flex;
     justify-content: center;
@@ -34,7 +34,7 @@ body{
 }
 
 .barra{
-    background-color: #87cefa;
+    background-color: #2b729e;
     color: #572944;
     display: flex;
     justify-content: space-around;
@@ -99,14 +99,14 @@ th{
 }
 
 .meio .amarelo{
-    background-color: yellow;
+    background-color: rgb(255, 255, 0);
     color: black;
     align-items: start;
     margin: 50px;
     width: 500px;
 }
 .final{
-    background-color: #fee4c3;
+    background-color: #bbb1a3;
     color: black;
     height: 90px;
     display: flex;

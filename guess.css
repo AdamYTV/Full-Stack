@@ -1,4 +1,6 @@
 body{
-    background-color: rgb(189, 95, 51);
-    text-align: center;
+    background-color: rgb(0, 174, 255);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }

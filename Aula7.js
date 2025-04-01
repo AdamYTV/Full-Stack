@@ -23,3 +23,13 @@ ctx.lineTo(200,150);
 ctx.fill();
 ctx.stroke();
 ctx.closePath();
+
+// arcos
+ctx.beginPath();
+ctx.lineWidth = 2;
+ctx.fillStyle = 'blue';
+ctx.strokeStyle = 'red';
+ctx.arc(200,200,50,1.5*Math.PI,2.5*Math.PI);
+ctx.fill();
+ctx.stroke();
+ctx.closePath();

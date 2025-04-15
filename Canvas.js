@@ -150,7 +150,7 @@ circulo(1,'blue',90,295,25,1.5,2.5)
 
 ctx2.beginPath()
 ctx2.lineWidth = 1
-ctx2.fillStyle = 'rgb(228, 56, 85)'
+ctx2.fillStyle = 'rgb(216, 85, 9)'
 ctx2.moveTo(120,150)
 ctx2.lineTo(150,130)
 ctx2.lineTo(180,150)

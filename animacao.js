@@ -1,7 +1,7 @@
 const canvas = document.getElementById('Canvas');
 const ctx = canvas.getContext('2d');
 
-const cursorRadius = 40;
+const cursorRadius = 5;
 
 function drawCursor(event) {
    

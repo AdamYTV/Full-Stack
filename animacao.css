@@ -4,9 +4,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f0f0f0;
+    background-color: #615151;
 }
 
 canvas {
-    border: 1px solid #000;
+    border: 1px solid #167edf;
 }

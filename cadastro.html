@@ -1,17 +1,19 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <link rel="stylesheet" href="cadastro.css" />
-  <title>Cadastro</title>
+  <link href="cadastrar_post.css" rel="stylesheet">
+  <title>Cadastrar Post</title>
+
+    
 </head>
 <body>
-  <div class="container">
-    <h1>Cadastro de Usuário</h1>
-    <form action="/cadastra" method="post">
-      <input type="text" name="usuario" placeholder="Usuário" required />
-      <input type="password" name="senha" placeholder="Senha" required />
-      <button type="submit">Cadastrar</button>
+  <div class="form-container">
+    <h1 style="text-align: center;">Novo Post</h1>
+    <form action="/cadastrar-post" method="POST">
+      <input type="text" name="titulo" placeholder="Título" required>
+      <input type="text" name="resumo" placeholder="Resumo" required>
+      <textarea name="conteudo" placeholder="Conteúdo" rows="5" required></textarea>
+      <button type="submit">Cadastrar Post</button>
     </form>
   </div>
 </body>

@@ -1,0 +1,53 @@
+/* Define a cor de fundo da página */
+body {
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+/* Centraliza elementos com a classe "container" */
+.container {
+    width: 50%;
+    margin: 50px auto;
+    text-align: center;
+}
+
+/* Define estilo padrão para inputs e botões */
+input, button {
+    margin: 10px 0;
+    padding: 10px;
+    width: 80%;
+}
+
+/* node -v
+npm -v
+Se aparecer algo como:
+
+Copiar
+Editar
+v18.17.0
+9.6.7
+Está funcionando!
+
+✅ 4. Depois disso:
+Na sua pasta:
+
+powershell
+Copiar
+Editar
+cd "C:\Users\w10\Documents\GitHub\prova final full stack lab 10"
+Instale as dependências:
+
+powershell
+Copiar
+Editar
+npm install
+Rode o projeto:
+
+powershell
+Copiar
+Editar
+npm start
+
+mongodb+srv://hammadehadam:<db_password>@adam.6tzqch3.mongodb.net/?retryWrites=true&w=majority&appName=Adam
+
+npm install mongodb

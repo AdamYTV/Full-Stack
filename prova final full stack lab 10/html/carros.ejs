@@ -1,0 +1,17 @@
+<!-- Lista de carros disponíveis -->
+<div class="container">
+    <h2>Carros Disponíveis</h2>
+    <ul>
+        <% carros.forEach(function(carro) { %>
+            <li>
+                <%= carro.marca %> - <%= carro.modelo %> - <%= carro.qtde_disponivel %>
+                <% if (carro.qtde_disponivel === 0) { %>
+                    <strong>Esgotado</strong>
+                <% } else { %>
+                    <a href="/vender-carro/<%= carro._id %>">Vender</a>
+                <% } %>
+            </li>
+        <% }); %>
+    </ul>
+</div>
+html/gerenciar-carros.ejs

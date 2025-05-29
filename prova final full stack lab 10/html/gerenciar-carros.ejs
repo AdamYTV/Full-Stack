@@ -1,0 +1,33 @@
+<!-- Página para gerenciar carros (Adicionar, Atualizar e Remover) -->
+<div class="container">
+    <h2>Gerenciar Carros</h2>
+
+    <!-- Formulário para adicionar novo carro -->
+    <form action="/add-carro" method="post">
+        <input name="marca" placeholder="Marca"><br>
+        <input name="modelo" placeholder="Modelo"><br>
+        <input name="ano" placeholder="Ano"><br>
+        <input name="qtde_disponivel" placeholder="Quantidade"><br>
+        <button type="submit">Adicionar Carro</button>
+    </form>
+
+    <h3>Lista de Carros</h3>
+    <ul>
+        <% carros.forEach(function(carro) { %>
+            <li>
+                <%= carro.marca %> - <%= carro.modelo %> - <%= carro.qtde_disponivel %>
+                
+                <!-- Formulário para atualizar quantidade -->
+                <form action="/update-carro/<%= carro._id %>" method="post" style="display:inline;">
+                    <input name="qtde_disponivel" placeholder="Nova Quantidade">
+                    <button type="submit">Atualizar</button>
+                </form>
+
+                <!-- Formulário para remover carro -->
+                <form action="/delete-carro/<%= carro._id %>" method="post" style="display:inline;">
+                    <button type="submit">Remover</button>
+                </form>
+            </li>
+        <% }); %>
+    </ul>
+</div>

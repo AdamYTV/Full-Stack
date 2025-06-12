@@ -51,3 +51,217 @@ npm start
 mongodb+srv://hammadehadam:<db_password>@adam.6tzqch3.mongodb.net/?retryWrites=true&w=majority&appName=Adam
 
 npm install mongodb
+
+_____---______----______-----________-------______----______-----______-----____
+
+meu-site/
+│
+├── server.js
+├── .env
+├── package.json  ← será criado depois
+├── models/
+│   └── Usuario.js
+├── views/
+│   ├── home.ejs
+│   └── resposta.ejs
+├── public/
+│   └── style.css
+
+cd caminho/para/meu-site
+npm init -y
+npm install express ejs mongoose dotenv
+
+
+adam 
+
+1️⃣ CRIE A ESTRUTURA DE PASTAS
+Crie uma pasta chamada meu-projeto com a seguinte estrutura:
+
+arduino
+Copiar
+Editar
+meu-projeto/
+├── server.js
+├── .env
+├── models/
+│   └── Usuario.js
+├── views/
+│   ├── home.ejs
+│   └── resposta.ejs
+├── public/
+│   └── style.css
+2️⃣ ABRA O TERMINAL NA PASTA DO PROJETO
+No terminal (ou CMD/PowerShell), vá até a pasta:
+
+bash
+Copiar
+Editar
+cd caminho/para/meu-projeto
+3️⃣ INICIE O PROJETO E INSTALE DEPENDÊNCIAS
+bash
+Copiar
+Editar
+npm init -y
+npm install express ejs mongoose dotenv
+4️⃣ CRIE O ARQUIVO .env
+Crie um arquivo chamado .env e adicione:
+
+ini
+Copiar
+Editar
+MONGO_URI=mongodb://127.0.0.1:27017/usuariosdb
+5️⃣ COPIE ESTES CÓDIGOS:
+📄 server.js
+js
+Copiar
+Editar
+const express = require('express');
+const mongoose = require('mongoose');
+const path = require('path');
+const Usuario = require('./models/Usuario');
+require('dotenv').config();
+
+const app = express();
+const PORT = 80;
+
+mongoose.connect(process.env.MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public')));
+app.set('view engine', 'ejs');
+
+app.get('/', (req, res) => {
+  res.render('home');
+});
+
+app.post('/enviar', async (req, res) => {
+  const novoUsuario = new Usuario(req.body);
+  await novoUsuario.save();
+  res.redirect('/resposta');
+});
+
+app.get('/resposta', async (req, res) => {
+  const usuarios = await Usuario.find();
+  res.render('resposta', { usuarios });
+});
+
+app.listen(PORT, () => {
+  console.log(`Servidor rodando em http://localhost`);
+});
+📄 models/Usuario.js
+js
+Copiar
+Editar
+const mongoose = require('mongoose');
+
+const UsuarioSchema = new mongoose.Schema({
+  nome: String,
+  email: String
+});
+
+module.exports = mongoose.model('Usuario', UsuarioSchema);
+📄 views/home.ejs
+html
+Copiar
+Editar
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Home</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <h1>Bem-vindo</h1>
+
+  <img src="https://via.placeholder.com/400" alt="Exemplo">
+
+  <ul>
+    <li>Item 1</li>
+    <li>Item 2</li>
+  </ul>
+
+  <form action="/enviar" method="POST">
+    <input type="text" name="nome" placeholder="Seu nome" required>
+    <input type="email" name="email" placeholder="Seu email" required>
+    <button type="submit">Enviar</button>
+  </form>
+</body>
+</html>
+📄 views/resposta.ejs
+html
+Copiar
+Editar
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Resposta</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <h1>Lista de Usuários</h1>
+
+  <ul>
+    <% usuarios.forEach(usuario => { %>
+      <li><%= usuario.nome %> - <%= usuario.email %></li>
+    <% }) %>
+  </ul>
+
+  <a href="/"><button>Voltar</button></a>
+</body>
+</html>
+📄 public/style.css
+css
+Copiar
+Editar
+body {
+  font-family: Arial;
+  padding: 20px;
+  background-color: #f2f2f2;
+}
+
+h1 {
+  color: #333;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+form input, form button {
+  display: block;
+  margin: 10px 0;
+  padding: 8px;
+}
+6️⃣ INICIE O MONGODB
+Abra outro terminal e digite:
+
+bash
+Copiar
+Editar
+mongod
+Ou use o MongoDB Compass se preferir uma interface gráfica.
+
+7️⃣ RODE O SERVIDOR
+De volta ao terminal da pasta do projeto, execute:
+
+bash
+Copiar
+Editar
+sudo node server.js
+(Em Windows, use node server.js sem sudo.)
+
+8️⃣ ACESSE NO NAVEGADOR
+Abra:
+
+arduino
+Copiar
+Editar
+http://localhost
+Você verá a página home.ejs. Ao enviar o formulário, será redirecionado para resposta.ejs com os dados salvos no banco.
+

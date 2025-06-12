@@ -46,7 +46,7 @@ console.log("Servidor Rodando..." .rainbow);
 
 
 
-// app.post("/cadastrar", function(requisicao,resposta){
+// app.post("/cadastrar", function(requisicao,resposta){ 
 //     let nome = requisicao.body.Nome;
 //     let login = requisicao.body.Login;
 //     let senha = requisicao.body.Senha;
